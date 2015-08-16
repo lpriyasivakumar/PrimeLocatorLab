@@ -6,19 +6,16 @@ public class PrimeLocator {
 	private static final int MAX_NUM = 1000;
 	public static ArrayList<Integer> primes = new ArrayList<Integer>();
 	
-	public static int locate(int index) {
-		primes = populatePrimes(index - 1);
+	static{
+		populatePrimesTo1000();
+		//System.out.println(primes);
+	}
+	
+	public static int locate(int index) {			
 		return primes.get(index - 1);
 	}
 
-	private static ArrayList<Integer> populatePrimes(int index) {
-		while (primes.size() <= index) {
-			checkIfPrime();
-		}
-		return primes;
-	}
-
-	private static void checkIfPrime() {
+	private static void populatePrimesTo1000() {
 		for (int num = 2; num < MAX_NUM; num++) {
 			if (num < 4){
 				primes.add(num);
